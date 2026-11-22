@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: atlas-command
+    runtime: node
+    plan: starter
+    buildCommand: "echo no build step"
+    startCommand: "node server/server.js"
+    healthCheckPath: /healthz
+    envVars:
+      - key: TEACHER_CODE
+        sync: false

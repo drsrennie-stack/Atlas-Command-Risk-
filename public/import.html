@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Import questions | Atlas Command</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="atlas.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the form</a>
+<main id="main" class="wrap">
+  <div class="top"><a class="brand" href="index.html" target="_top" style="text-decoration:none;color:#fff">Atlas <span class="hl">Command</span></a></div>
+  <p class="eyebrow">Teachers</p>
+  <h1 style="font-size:44px;margin:6px 0 14px">Import <span class="hl">questions</span></h1>
+  <p class="note">Upload a CSV or JSON file. Nothing is saved until you have seen the check and pressed Save. Your file is copied. The original is not changed.</p>
+  <div class="grid2">
+    <form class="card" id="f">
+      <div class="field"><label for="code">Teacher code</label><input type="text" id="code" autocomplete="off" required></div>
+      <div class="field"><label for="sys">Body system</label><select id="sys"><option value="nervous">Nervous system</option></select></div>
+      <div class="field"><label for="file">CSV or JSON file</label><input type="file" id="file" accept=".csv,.json,text/csv,application/json" required></div>
+      <div class="bar"><button class="btn gold" type="submit">Check file</button><button class="btn primary" type="button" id="save" disabled>Save checked questions</button></div>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+    <section class="card" aria-labelledby="cols"><h2 id="cols" class="eyebrow" style="margin-bottom:10px">Columns</h2>
+      <ul style="margin:0;padding-left:20px">
+        <li><strong>question</strong>, <strong>content</strong> (anatomy or physiology), <strong>dok</strong> (1, 2 or 3)</li>
+        <li><strong>anat</strong> (gross or histology) for anatomy cards</li>
+        <li>Multiple choice: <strong>optionA</strong> to <strong>optionD</strong> and <strong>correct</strong> (A to D)</li>
+        <li>Image identification: <strong>image</strong> (file name in data/images) and <strong>answer</strong> (other spellings separated by |)</li>
+        <li>Optional: id, territory, topic, competency, explanation</li>
+      </ul>
+      <p class="note" style="margin-bottom:0">Recall cards with no answer choices are not turned into multiple choice. They are listed for you to finish.</p>
+    </section>
+  </div>
+  <div id="out" aria-live="polite" style="margin-top:20px"></div>
+</main>
+<script>
+(function(){
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
+  var text='',fmt='csv';
+  function table(title,rows,cols){ if(!rows.length) return ''; return '<section class="card" style="margin-top:16px"><h2 class="eyebrow" style="margin-bottom:10px">'+title+' ('+rows.length+')</h2><div style="overflow:auto"><table><thead><tr>'+cols.map(function(c){return '<th scope="col">'+c[0]+'</th>';}).join('')+'</tr></thead><tbody>'+rows.map(function(r){return '<tr>'+cols.map(function(c){var v=r[c[1]];return '<td>'+esc(Array.isArray(v)?v.join('; '):v)+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div></section>'; }
+  async function run(commit){
+    document.getElementById('err').textContent='';
+    var r=await fetch('/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({teacherCode:document.getElementById('code').value.trim(),system:document.getElementById('sys').value,format:fmt,text:text,commit:commit})});
+    var j=await r.json(); if(!r.ok){document.getElementById('err').textContent=j.error||'The server did not accept that.';return;}
+    if(!j.ok){document.getElementById('out').innerHTML='<p class="err">'+esc(j.problems.join(' '))+'</p>';return;}
+    document.getElementById('save').disabled=!j.accepted;
+    document.getElementById('out').innerHTML='<p><strong>'+j.total+' rows read. '+j.accepted+' can be used, '+j.review.length+' of those need your review, '+j.rejected.length+' cannot be used yet.</strong>'+(j.saved!=null?' Saved. The custom bank now holds '+j.saved+' questions. New rooms will use them.':'')+'</p>'
+      +table('Cannot be used yet',j.rejected,[['Row','row'],['Question','question'],['Why','reasons']])
+      +table('Usable, needs your review',j.review,[['Row','row'],['Question','question'],['Answer','answer'],['Check','reasons']])
+      +table('Preview of the first usable questions',j.preview,[['Type','type'],['Content','content'],['Territory','territory'],['DOK','dok'],['Question','question'],['Answer','answer']]);
+  }
+  fetch('/api/systems').then(function(r){return r.json();}).then(function(j){document.getElementById('sys').innerHTML=j.systems.map(function(x){return '<option value="'+x.id+'">'+esc(x.name)+'</option>';}).join('');}).catch(function(){});
+  document.getElementById('f').onsubmit=function(e){e.preventDefault();var f=document.getElementById('file').files[0];if(!f)return;fmt=/\.json$/i.test(f.name)?'json':'csv';var rd=new FileReader();rd.onload=function(){text=String(rd.result);run(false);};rd.readAsText(f);};
+  document.getElementById('save').onclick=function(){run(true);};
+  var ID="atlas-command-import",last=0;function send(){var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h===last)return;last=h;try{window.parent.postMessage({type:"iframe-height",id:ID,height:h},"*");}catch(e){}}
+  if(window.ResizeObserver){new ResizeObserver(send).observe(document.documentElement);}window.addEventListener("load",send);window.addEventListener("resize",send);send();
+})();
+</script>
+</body>
+</html>

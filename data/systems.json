@@ -1,0 +1,2637 @@
+{
+ "_readme": "One entry per body system. To add a system: add its territories, its game connections, which Recall Rx topics and Loops belong to it, and the wording rules that tag a card to a territory. Then run tools/build_bank.py --system <id>. Every anatomical statement in 'connections' is shown to players, so it must be true.",
+ "systems": {
+  "cells": {
+   "name": "Cells and Tissues",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Cell and tissues"
+    }
+   ],
+   "linkLabels": {
+    "border": "Structures touch",
+    "pathway": "One signals the other"
+   },
+   "territories": [
+    {
+     "id": "membrane",
+     "name": "Plasma membrane",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "organelles",
+     "name": "Cytoplasm and organelles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "nucleus",
+     "name": "Nucleus",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "epithelial",
+     "name": "Epithelial tissue",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "connective",
+     "name": "Connective tissue",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "muscle",
+     "name": "Muscle tissue",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "nervoustissue",
+     "name": "Nervous tissue",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "membrane",
+     "b": "organelles",
+     "kind": "border",
+     "note": "The plasma membrane encloses the cytoplasm and its organelles."
+    },
+    {
+     "a": "organelles",
+     "b": "nucleus",
+     "kind": "border",
+     "note": "The nuclear envelope is continuous with the rough endoplasmic reticulum."
+    },
+    {
+     "a": "membrane",
+     "b": "epithelial",
+     "kind": "border",
+     "note": "Cell junctions in the plasma membrane hold epithelial cells together."
+    },
+    {
+     "a": "epithelial",
+     "b": "connective",
+     "kind": "border",
+     "note": "Epithelium rests on connective tissue at the basement membrane."
+    },
+    {
+     "a": "connective",
+     "b": "muscle",
+     "kind": "border",
+     "note": "Connective tissue sheaths wrap muscle fibers (endomysium, perimysium, epimysium)."
+    },
+    {
+     "a": "connective",
+     "b": "nervoustissue",
+     "kind": "border",
+     "note": "Connective tissue sheaths wrap nerve fibers (endoneurium, perineurium, epineurium)."
+    },
+    {
+     "a": "nervoustissue",
+     "b": "muscle",
+     "kind": "pathway",
+     "note": "Motor neurons signal skeletal muscle fibers at the neuromuscular junction."
+    }
+   ],
+   "territoryRules": {
+    "nucleus": {
+     "include": [
+      "nucleus",
+      "nuclear",
+      "nucleol",
+      "chromatin",
+      "chromosome"
+     ]
+    },
+    "membrane": {
+     "include": [
+      "plasma membrane",
+      "cell membrane",
+      "phospholipid",
+      "microvilli",
+      "desmosome",
+      "tight junction",
+      "gap junction"
+     ]
+    },
+    "organelles": {
+     "include": [
+      "mitochond",
+      "ribosom",
+      "endoplasmic",
+      "golgi",
+      "lysosom",
+      "peroxisom",
+      "centriol",
+      "cytoskelet",
+      "organelle",
+      "microtubule"
+     ]
+    },
+    "muscle": {
+     "include": [
+      "muscle tissue",
+      "skeletal muscle",
+      "cardiac muscle",
+      "smooth muscle",
+      "muscle fiber",
+      "striat",
+      "intercalated"
+     ]
+    },
+    "nervoustissue": {
+     "include": [
+      "neuron",
+      "neuroglia",
+      "nervous tissue",
+      "glial",
+      "axon",
+      "dendrite"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m1-cell": {
+      "anat": "histology"
+     },
+     "m1-epithelial": {
+      "anat": "histology",
+      "territory": "epithelial"
+     },
+     "m1-connective": {
+      "anat": "histology",
+      "territory": "connective"
+     },
+     "m1-muscle-nervous-tissue": {
+      "anat": "histology"
+     }
+    },
+    "bio005": {
+     "t-foundations-of-physiology": {},
+     "t-chemical-foundations": {},
+     "t-membrane-structure-and-diffusion": {
+      "territory": "membrane"
+     },
+     "t-membrane-transport": {
+      "territory": "membrane"
+     },
+     "t-metabolism-and-energy-balance": {},
+     "t-cell-signaling": {}
+    }
+   },
+   "loops": {
+    "tissues": {
+     "anat": "histology"
+    },
+    "tissues-2": {
+     "anat": "histology"
+    }
+   },
+   "rounds": []
+  },
+  "integumentary": {
+   "name": "Integumentary System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Skin section"
+    }
+   ],
+   "linkLabels": {
+    "border": "Structures touch",
+    "pathway": "One opens into or grows from the other"
+   },
+   "territories": [
+    {
+     "id": "epidermis",
+     "name": "Epidermis",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "dermis",
+     "name": "Dermis",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "hypodermis",
+     "name": "Hypodermis",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "hair",
+     "name": "Hair and follicles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "glands",
+     "name": "Sweat and sebaceous glands",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "nails",
+     "name": "Nails",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "epidermis",
+     "b": "dermis",
+     "kind": "border",
+     "note": "Dermal papillae interlock with the epidermis."
+    },
+    {
+     "a": "dermis",
+     "b": "hypodermis",
+     "kind": "border",
+     "note": "The reticular layer of the dermis sits on the hypodermis."
+    },
+    {
+     "a": "hair",
+     "b": "epidermis",
+     "kind": "pathway",
+     "note": "A hair follicle is a downgrowth of the epidermis."
+    },
+    {
+     "a": "hair",
+     "b": "dermis",
+     "kind": "border",
+     "note": "The follicle and its arrector pili muscle sit in the dermis."
+    },
+    {
+     "a": "glands",
+     "b": "hair",
+     "kind": "pathway",
+     "note": "Sebaceous glands open into hair follicles."
+    },
+    {
+     "a": "glands",
+     "b": "dermis",
+     "kind": "border",
+     "note": "Sweat gland coils sit in the deep dermis."
+    },
+    {
+     "a": "nails",
+     "b": "epidermis",
+     "kind": "pathway",
+     "note": "The nail plate is made by epidermal cells of the nail matrix."
+    }
+   ],
+   "territoryRules": {
+    "epidermis": {
+     "include": [
+      "epiderm",
+      "stratum",
+      "keratinocyte",
+      "melanocyte",
+      "langerhans",
+      "dendritic cell",
+      "merkel",
+      "tactile cell"
+     ]
+    },
+    "dermis": {
+     "include": [
+      "\\bdermis\\b",
+      "papillary layer",
+      "reticular layer",
+      "dermal papilla"
+     ]
+    },
+    "hypodermis": {
+     "include": [
+      "hypodermis",
+      "subcutaneous",
+      "superficial fascia"
+     ]
+    },
+    "hair": {
+     "include": [
+      "\\bhair",
+      "follicle",
+      "arrector"
+     ]
+    },
+    "glands": {
+     "include": [
+      "sebaceous",
+      "sweat",
+      "sudorifer",
+      "eccrine",
+      "apocrine",
+      "merocrine",
+      "sebum",
+      "ceruminous"
+     ]
+    },
+    "nails": {
+     "include": [
+      "\\bnail",
+      "lunula",
+      "eponychium",
+      "hyponychium"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m1-integumentary": {}
+    },
+    "bio005": {}
+   },
+   "loops": {
+    "skin": {}
+   },
+   "rounds": []
+  },
+  "skeletal": {
+   "name": "Skeletal System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Skeleton, front view"
+    }
+   ],
+   "linkLabels": {
+    "border": "Bones meet at a joint",
+    "pathway": "Linked"
+   },
+   "territories": [
+    {
+     "id": "skull",
+     "name": "Skull",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "vertebral",
+     "name": "Vertebral column",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "thoracic",
+     "name": "Thoracic cage",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pectoral",
+     "name": "Pectoral girdle",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "upperlimb",
+     "name": "Upper limb bones",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pelvic",
+     "name": "Pelvic girdle",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "lowerlimb",
+     "name": "Lower limb bones",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "skull",
+     "b": "vertebral",
+     "kind": "border",
+     "note": "The occipital condyles sit on the atlas (C1)."
+    },
+    {
+     "a": "vertebral",
+     "b": "thoracic",
+     "kind": "border",
+     "note": "The ribs articulate with the thoracic vertebrae."
+    },
+    {
+     "a": "thoracic",
+     "b": "pectoral",
+     "kind": "border",
+     "note": "The clavicle meets the sternum at the sternoclavicular joint."
+    },
+    {
+     "a": "pectoral",
+     "b": "upperlimb",
+     "kind": "border",
+     "note": "The humerus meets the scapula at the shoulder joint."
+    },
+    {
+     "a": "vertebral",
+     "b": "pelvic",
+     "kind": "border",
+     "note": "The sacrum meets the hip bones at the sacroiliac joints."
+    },
+    {
+     "a": "pelvic",
+     "b": "lowerlimb",
+     "kind": "border",
+     "note": "The femur meets the hip bone at the hip joint."
+    }
+   ],
+   "territoryRules": {
+    "vertebral": {
+     "include": [
+      "vertebr",
+      "\\batlas\\b",
+      "\\baxis\\b",
+      "sacrum",
+      "sacral",
+      "coccy",
+      "intervertebral",
+      "spinous",
+      "lamina"
+     ]
+    },
+    "thoracic": {
+     "include": [
+      "\\bribs?\\b",
+      "sternum",
+      "sternal",
+      "costal",
+      "manubrium",
+      "xiphoid",
+      "thoracic cage"
+     ]
+    },
+    "pectoral": {
+     "include": [
+      "clavic",
+      "scapul",
+      "acromi",
+      "glenoid",
+      "coracoid"
+     ]
+    },
+    "upperlimb": {
+     "include": [
+      "humer",
+      "radius",
+      "radial",
+      "ulna",
+      "carpal",
+      "metacarp",
+      "olecranon",
+      "trochlea",
+      "capitulum",
+      "scaphoid",
+      "lunate",
+      "hamate",
+      "pisiform"
+     ]
+    },
+    "pelvic": {
+     "include": [
+      "hip bone",
+      "coxal",
+      "ilium",
+      "iliac",
+      "ischi",
+      "pubi",
+      "acetabul",
+      "pelvi",
+      "obturator"
+     ]
+    },
+    "lowerlimb": {
+     "include": [
+      "femur",
+      "femoral",
+      "tibia",
+      "fibula",
+      "patella",
+      "tarsal",
+      "calcane",
+      "talus",
+      "metatars",
+      "malleol"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m2-bone-tissue": {},
+     "m2-skull": {
+      "anat": "gross",
+      "territory": "skull"
+     },
+     "m2-spine-thorax": {
+      "anat": "gross"
+     },
+     "m2-upper-extremity": {
+      "anat": "gross"
+     },
+     "m2-lower-extremity": {
+      "anat": "gross"
+     },
+     "m2-joints": {
+      "anat": "gross"
+     }
+    },
+    "bio005": {}
+   },
+   "loops": {
+    "bone": {},
+    "skull": {
+     "territory": "skull"
+    },
+    "appendicular": {},
+    "boneaxial2": {}
+   },
+   "rounds": []
+  },
+  "muscular": {
+   "name": "Muscular System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Body, front view"
+    }
+   ],
+   "linkLabels": {
+    "border": "Muscles cross from one region to the next",
+    "pathway": "Linked"
+   },
+   "territories": [
+    {
+     "id": "headneck",
+     "name": "Head and neck muscles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "trunk",
+     "name": "Back, thorax and shoulder",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "abdominal",
+     "name": "Abdominal wall",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "arm",
+     "name": "Arm muscles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "forearm",
+     "name": "Forearm muscles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "hand",
+     "name": "Hand muscles",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "thigh",
+     "name": "Gluteal region and thigh",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "leg",
+     "name": "Leg and foot muscles",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "headneck",
+     "b": "trunk",
+     "kind": "border",
+     "note": "The trapezius runs from the neck onto the shoulder and back."
+    },
+    {
+     "a": "trunk",
+     "b": "arm",
+     "kind": "border",
+     "note": "The deltoid and rotator cuff muscles cross the shoulder joint onto the humerus."
+    },
+    {
+     "a": "arm",
+     "b": "forearm",
+     "kind": "border",
+     "note": "Biceps brachii and brachialis cross the elbow to the radius and ulna."
+    },
+    {
+     "a": "forearm",
+     "b": "hand",
+     "kind": "border",
+     "note": "Forearm flexor and extensor tendons cross the wrist into the hand."
+    },
+    {
+     "a": "trunk",
+     "b": "abdominal",
+     "kind": "border",
+     "note": "The external oblique arises from the lower ribs."
+    },
+    {
+     "a": "abdominal",
+     "b": "thigh",
+     "kind": "border",
+     "note": "The inguinal ligament marks where the abdominal wall meets the thigh."
+    },
+    {
+     "a": "thigh",
+     "b": "leg",
+     "kind": "border",
+     "note": "The quadriceps and hamstrings cross the knee to the tibia and fibula."
+    }
+   ],
+   "territoryRules": {},
+   "recallRx": {
+    "bio004": {
+     "m3-muscle-organization": {},
+     "m3-muscle-microanatomy": {
+      "anat": "histology"
+     },
+     "m3-muscle-naming-levers": {
+      "anat": "gross"
+     },
+     "m3-back-thorax-muscles": {
+      "anat": "gross",
+      "territory": "trunk"
+     },
+     "m3-arm-muscles": {
+      "anat": "gross",
+      "territory": "arm"
+     },
+     "m3-forearm-anterior": {
+      "anat": "gross",
+      "territory": "forearm"
+     },
+     "m3-forearm-posterior": {
+      "anat": "gross",
+      "territory": "forearm"
+     },
+     "m3-hand-muscles": {
+      "anat": "gross",
+      "territory": "hand"
+     },
+     "m4-hip-thigh-muscles": {
+      "anat": "gross",
+      "territory": "thigh"
+     },
+     "m4-leg-muscles": {
+      "anat": "gross",
+      "territory": "leg"
+     },
+     "mx-head-neck-muscles": {
+      "anat": "gross",
+      "territory": "headneck"
+     },
+     "mx-abdominal-wall": {
+      "anat": "gross",
+      "territory": "abdominal"
+     }
+    },
+    "bio005": {
+     "t-skeletal-muscle-physiology": {},
+     "t-cardiac-and-smooth-muscle": {}
+    }
+   },
+   "loops": {
+    "muscles-upper": {},
+    "muscles-lower": {},
+    "muscles-head": {
+     "territory": "headneck"
+    },
+    "sarcomere": {
+     "anat": "histology"
+    },
+    "microanatomy": {
+     "anat": "histology"
+    },
+    "muscletissue": {
+     "anat": "histology"
+    },
+    "abdominal-muscles": {
+     "territory": "abdominal"
+    },
+    "abdominal-fascia": {
+     "territory": "abdominal"
+    },
+    "cadaver-ue": {},
+    "forearm-cadaver": {},
+    "upper-leg-cadaver": {
+     "territory": "thigh"
+    },
+    "lower-leg-cadaver": {
+     "territory": "leg"
+    }
+   },
+   "rounds": [
+    "back-",
+    "leg-",
+    "thigh-"
+   ]
+  },
+  "nervous": {
+   "name": "Nervous System",
+   "views": [
+    {
+     "id": "lateral",
+     "name": "Lateral view"
+    },
+    {
+     "id": "internal",
+     "name": "Internal view (midsagittal)"
+    }
+   ],
+   "territories": [
+    {
+     "id": "frontal",
+     "name": "Frontal lobe",
+     "views": [
+      "lateral"
+     ]
+    },
+    {
+     "id": "parietal",
+     "name": "Parietal lobe",
+     "views": [
+      "lateral"
+     ]
+    },
+    {
+     "id": "temporal",
+     "name": "Temporal lobe",
+     "views": [
+      "lateral"
+     ]
+    },
+    {
+     "id": "occipital",
+     "name": "Occipital lobe",
+     "views": [
+      "lateral"
+     ]
+    },
+    {
+     "id": "thalamus",
+     "name": "Thalamus",
+     "views": [
+      "internal"
+     ]
+    },
+    {
+     "id": "hypothalamus",
+     "name": "Hypothalamus",
+     "views": [
+      "internal"
+     ]
+    },
+    {
+     "id": "cerebellum",
+     "name": "Cerebellum",
+     "views": [
+      "lateral",
+      "internal"
+     ]
+    },
+    {
+     "id": "midbrain",
+     "name": "Midbrain",
+     "views": [
+      "internal"
+     ]
+    },
+    {
+     "id": "pons",
+     "name": "Pons",
+     "views": [
+      "lateral",
+      "internal"
+     ]
+    },
+    {
+     "id": "medulla",
+     "name": "Medulla oblongata",
+     "views": [
+      "lateral",
+      "internal"
+     ]
+    },
+    {
+     "id": "spinal",
+     "name": "Spinal cord",
+     "views": [
+      "lateral",
+      "internal"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "frontal",
+     "b": "parietal",
+     "kind": "border",
+     "note": "They meet at the central sulcus."
+    },
+    {
+     "a": "frontal",
+     "b": "temporal",
+     "kind": "border",
+     "note": "The lateral sulcus separates them."
+    },
+    {
+     "a": "parietal",
+     "b": "temporal",
+     "kind": "border",
+     "note": "They meet behind the end of the lateral sulcus."
+    },
+    {
+     "a": "parietal",
+     "b": "occipital",
+     "kind": "border",
+     "note": "They meet at the parieto-occipital sulcus."
+    },
+    {
+     "a": "temporal",
+     "b": "occipital",
+     "kind": "border",
+     "note": "They share a border on the lateral and inferior surfaces."
+    },
+    {
+     "a": "occipital",
+     "b": "cerebellum",
+     "kind": "border",
+     "note": "They face each other across the transverse fissure and tentorium cerebelli."
+    },
+    {
+     "a": "thalamus",
+     "b": "frontal",
+     "kind": "pathway",
+     "note": "Thalamocortical fibers run between them (thalamic radiations)."
+    },
+    {
+     "a": "thalamus",
+     "b": "parietal",
+     "kind": "pathway",
+     "note": "Thalamocortical fibers run between them (thalamic radiations)."
+    },
+    {
+     "a": "thalamus",
+     "b": "temporal",
+     "kind": "pathway",
+     "note": "Thalamocortical fibers run between them (thalamic radiations)."
+    },
+    {
+     "a": "thalamus",
+     "b": "occipital",
+     "kind": "pathway",
+     "note": "Thalamocortical fibers run between them (thalamic radiations)."
+    },
+    {
+     "a": "thalamus",
+     "b": "hypothalamus",
+     "kind": "border",
+     "note": "The hypothalamus sits directly below the thalamus."
+    },
+    {
+     "a": "thalamus",
+     "b": "midbrain",
+     "kind": "border",
+     "note": "The diencephalon is continuous with the midbrain."
+    },
+    {
+     "a": "hypothalamus",
+     "b": "midbrain",
+     "kind": "border",
+     "note": "The diencephalon is continuous with the midbrain."
+    },
+    {
+     "a": "midbrain",
+     "b": "pons",
+     "kind": "border",
+     "note": "The brainstem is continuous from midbrain to pons."
+    },
+    {
+     "a": "pons",
+     "b": "medulla",
+     "kind": "border",
+     "note": "The brainstem is continuous from pons to medulla."
+    },
+    {
+     "a": "medulla",
+     "b": "spinal",
+     "kind": "border",
+     "note": "The medulla becomes the spinal cord at the foramen magnum."
+    },
+    {
+     "a": "cerebellum",
+     "b": "midbrain",
+     "kind": "pathway",
+     "note": "The superior cerebellar peduncles join them."
+    },
+    {
+     "a": "cerebellum",
+     "b": "pons",
+     "kind": "pathway",
+     "note": "The middle cerebellar peduncles join them."
+    },
+    {
+     "a": "cerebellum",
+     "b": "medulla",
+     "kind": "pathway",
+     "note": "The inferior cerebellar peduncles join them."
+    }
+   ],
+   "territoryRules": {
+    "frontal": {
+     "include": [
+      "frontal lobe",
+      "precentral gyrus",
+      "primary motor cortex",
+      "prefrontal",
+      "premotor",
+      "broca",
+      "frontal eye field",
+      "inferior frontal gyrus"
+     ]
+    },
+    "parietal": {
+     "include": [
+      "parietal lobe",
+      "postcentral gyrus",
+      "somatosensory cortex",
+      "primary sensory cortex",
+      "supramarginal gyrus",
+      "angular gyrus"
+     ]
+    },
+    "temporal": {
+     "include": [
+      "temporal lobe",
+      "auditory cortex",
+      "wernicke",
+      "hippocampus",
+      "amygdal",
+      "temporal gyrus",
+      "parahippocampal"
+     ]
+    },
+    "occipital": {
+     "include": [
+      "occipital lobe",
+      "visual cortex",
+      "calcarine"
+     ]
+    },
+    "thalamus": {
+     "include": [
+      "(?<![a-z])thalam",
+      "interthalamic",
+      "massa intermedia",
+      "geniculate"
+     ]
+    },
+    "hypothalamus": {
+     "include": [
+      "hypothalam",
+      "mammillary",
+      "infundibulum"
+     ],
+     "exclude": [
+      "uterine",
+      "fimbria"
+     ]
+    },
+    "cerebellum": {
+     "include": [
+      "cerebell(?!i)",
+      "arbor vitae",
+      "\\bfolia\\b",
+      "\\bvermis\\b"
+     ],
+     "exclude": [
+      "cerebellar arter"
+     ]
+    },
+    "midbrain": {
+     "include": [
+      "midbrain",
+      "mesencephal",
+      "collicul",
+      "corpora quadrigemina",
+      "cerebral aqueduct",
+      "substantia nigra",
+      "red nucleus",
+      "cerebral peduncle",
+      "crus cerebri",
+      "\\btectum\\b"
+     ]
+    },
+    "pons": {
+     "include": [
+      "\\bpons\\b",
+      "pontine"
+     ]
+    },
+    "medulla": {
+     "include": [
+      "medulla oblongata",
+      "\\bmedulla\\b",
+      "decussation of the pyramids"
+     ],
+     "exclude": [
+      "adrenal",
+      "renal",
+      "suprarenal",
+      "ovar",
+      "lymph",
+      "thymus",
+      "hair"
+     ]
+    },
+    "spinal": {
+     "include": [
+      "spinal cord",
+      "(dorsal|ventral|anterior|posterior|lateral) horn",
+      "conus medullaris",
+      "cauda equina",
+      "filum terminale",
+      "gr[ae]y commissure",
+      "central canal",
+      "funicul",
+      "(cervical|lumbar) enlargement"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m1-muscle-nervous-tissue": {
+      "anat": "histology",
+      "onlyIf": "neuron|neuroglia|glia|nervous tissue|axon|dendrite|myelin|schwann|astrocyte|oligodendrocyte|microglia|ependymal|nerve cell|soma|synap"
+     },
+     "m5-nervous-tissue": {
+      "histologyIf": "neuroglia|glial|astrocyte|oligodendrocyte|microglia|ependymal|schwann|satellite cell|myelin|node of ranvier|neurolemma|axon|dendrite|soma|cell body|nissl|neurofibril|synaptic knob|axon hillock|unipolar|bipolar|multipolar|endoneurium|perineurium|epineurium"
+     },
+     "m5-cerebrum": {
+      "anat": "gross"
+     },
+     "m5-diencephalon-brainstem": {
+      "anat": "gross"
+     },
+     "m5-meninges-csf": {
+      "anat": "gross"
+     },
+     "m5-spinal-cord": {
+      "anat": "gross"
+     },
+     "m5-cranial-nerves": {
+      "anat": "gross"
+     },
+     "m5-spinal-nerves": {
+      "anat": "gross"
+     },
+     "m5-ans": {
+      "anat": "gross"
+     }
+    },
+    "bio005": {
+     "t-membrane-potential": {},
+     "t-neurons-and-neuroglia": {},
+     "t-electrical-signaling": {},
+     "t-synaptic-transmission": {},
+     "t-central-integration-and-reflexes": {},
+     "t-general-sensory-physiology": {},
+     "t-special-senses": {},
+     "t-motor-control": {},
+     "t-autonomic-nervous-system": {}
+    }
+   },
+   "loops": {
+    "neuro-brain": {
+     "anat": "gross"
+    },
+    "neuro-brain-midsagittal": {
+     "anat": "gross"
+    },
+    "neuro-brain-cow": {
+     "anat": "gross"
+    },
+    "neuro-brain-inferior": {
+     "anat": "gross"
+    },
+    "neuro-cranial-nerves": {
+     "anat": "gross"
+    },
+    "spine": {
+     "anat": "gross",
+     "skipStations": {
+      "2": "the question image shows the answer (Dura Mater is printed on frame s05)"
+     }
+    }
+   },
+   "rounds": [],
+   "linkLabels": {
+    "border": "Regions touch",
+    "pathway": "Named fiber pathway"
+   }
+  },
+  "endocrine": {
+   "name": "Endocrine System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Endocrine glands"
+    }
+   ],
+   "linkLabels": {
+    "border": "Physically joined, or parts of the same brain region",
+    "pathway": "A hormone from one acts on the other"
+   },
+   "territories": [
+    {
+     "id": "hypothalamus",
+     "name": "Hypothalamus",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pineal",
+     "name": "Pineal gland",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pituitary",
+     "name": "Pituitary gland",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "thyroid",
+     "name": "Thyroid and parathyroid glands",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "adrenal",
+     "name": "Adrenal glands",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pancreas",
+     "name": "Pancreatic islets",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "gonads",
+     "name": "Gonads",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "hypothalamus",
+     "b": "pituitary",
+     "kind": "border",
+     "note": "The infundibulum joins the pituitary gland to the hypothalamus."
+    },
+    {
+     "a": "hypothalamus",
+     "b": "pineal",
+     "kind": "border",
+     "note": "Both are parts of the diencephalon."
+    },
+    {
+     "a": "pituitary",
+     "b": "thyroid",
+     "kind": "pathway",
+     "note": "TSH from the anterior pituitary acts on the thyroid gland."
+    },
+    {
+     "a": "pituitary",
+     "b": "adrenal",
+     "kind": "pathway",
+     "note": "ACTH from the anterior pituitary acts on the adrenal cortex."
+    },
+    {
+     "a": "pituitary",
+     "b": "gonads",
+     "kind": "pathway",
+     "note": "FSH and LH from the anterior pituitary act on the gonads."
+    },
+    {
+     "a": "thyroid",
+     "b": "hypothalamus",
+     "kind": "pathway",
+     "note": "Thyroid hormone feeds back on the hypothalamus."
+    },
+    {
+     "a": "adrenal",
+     "b": "hypothalamus",
+     "kind": "pathway",
+     "note": "Cortisol feeds back on the hypothalamus."
+    },
+    {
+     "a": "gonads",
+     "b": "hypothalamus",
+     "kind": "pathway",
+     "note": "Sex steroids feed back on the hypothalamus."
+    },
+    {
+     "a": "adrenal",
+     "b": "pancreas",
+     "kind": "pathway",
+     "note": "Epinephrine from the adrenal medulla inhibits insulin release from the islets."
+    }
+   ],
+   "territoryRules": {
+    "hypothalamus": {
+     "include": [
+      "hypothalam"
+     ]
+    },
+    "pituitary": {
+     "include": [
+      "pituitar",
+      "hypophys"
+     ]
+    },
+    "pineal": {
+     "include": [
+      "pineal",
+      "melatonin"
+     ]
+    },
+    "thyroid": {
+     "include": [
+      "thyroid",
+      "calcitonin",
+      "thyroxine"
+     ],
+     "exclude": [
+      "thyroid cartilage"
+     ]
+    },
+    "adrenal": {
+     "include": [
+      "adrenal",
+      "suprarenal",
+      "cortisol",
+      "aldosterone",
+      "zona (glomerulosa|fasciculata|reticularis)"
+     ]
+    },
+    "pancreas": {
+     "include": [
+      "pancrea",
+      "islet",
+      "insulin",
+      "glucagon"
+     ]
+    },
+    "gonads": {
+     "include": [
+      "testosterone",
+      "estrogen",
+      "progesterone",
+      "\\bovar",
+      "testis",
+      "testes",
+      "gonad"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m4-endocrine": {}
+    },
+    "bio005": {
+     "t-endocrine-principles": {},
+     "t-endocrine-glands": {}
+    }
+   },
+   "loops": {},
+   "rounds": []
+  },
+  "cardiovascular": {
+   "name": "Cardiovascular System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Heart and circuits"
+    }
+   ],
+   "linkLabels": {
+    "border": "Chambers share a wall",
+    "pathway": "Blood flows from one to the other"
+   },
+   "territories": [
+    {
+     "id": "veins",
+     "name": "Venae cavae and systemic veins",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "ra",
+     "name": "Right atrium",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "rv",
+     "name": "Right ventricle",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pulmonary",
+     "name": "Pulmonary circuit",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "la",
+     "name": "Left atrium",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "lv",
+     "name": "Left ventricle",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "aorta",
+     "name": "Aorta and systemic arteries",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "coronary",
+     "name": "Coronary circulation",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "veins",
+     "b": "ra",
+     "kind": "pathway",
+     "note": "The venae cavae empty into the right atrium."
+    },
+    {
+     "a": "ra",
+     "b": "rv",
+     "kind": "pathway",
+     "note": "Blood passes through the tricuspid valve."
+    },
+    {
+     "a": "rv",
+     "b": "pulmonary",
+     "kind": "pathway",
+     "note": "Blood leaves through the pulmonary valve into the pulmonary trunk."
+    },
+    {
+     "a": "pulmonary",
+     "b": "la",
+     "kind": "pathway",
+     "note": "The pulmonary veins return blood to the left atrium."
+    },
+    {
+     "a": "la",
+     "b": "lv",
+     "kind": "pathway",
+     "note": "Blood passes through the mitral (bicuspid) valve."
+    },
+    {
+     "a": "lv",
+     "b": "aorta",
+     "kind": "pathway",
+     "note": "Blood leaves through the aortic valve into the aorta."
+    },
+    {
+     "a": "aorta",
+     "b": "veins",
+     "kind": "pathway",
+     "note": "Systemic capillary beds link the arteries to the veins."
+    },
+    {
+     "a": "aorta",
+     "b": "coronary",
+     "kind": "pathway",
+     "note": "The coronary arteries branch from the ascending aorta."
+    },
+    {
+     "a": "coronary",
+     "b": "ra",
+     "kind": "pathway",
+     "note": "The coronary sinus empties into the right atrium."
+    },
+    {
+     "a": "ra",
+     "b": "la",
+     "kind": "border",
+     "note": "The interatrial septum separates them."
+    },
+    {
+     "a": "rv",
+     "b": "lv",
+     "kind": "border",
+     "note": "The interventricular septum separates them."
+    }
+   ],
+   "territoryRules": {
+    "ra": {
+     "include": [
+      "right atri"
+     ]
+    },
+    "rv": {
+     "include": [
+      "right ventric"
+     ]
+    },
+    "la": {
+     "include": [
+      "left atri"
+     ]
+    },
+    "lv": {
+     "include": [
+      "left ventric"
+     ]
+    },
+    "coronary": {
+     "include": [
+      "coronary",
+      "circumflex",
+      "interventricular arter",
+      "cardiac vein",
+      "marginal arter",
+      "anterior descending"
+     ]
+    },
+    "pulmonary": {
+     "include": [
+      "pulmonary (trunk|arter|vein|circuit|circulation|capillar)"
+     ]
+    },
+    "aorta": {
+     "include": [
+      "aort",
+      "\\b(artery|arteries|arterial)\\b"
+     ],
+     "exclude": [
+      "pulmonary",
+      "coronary",
+      "\\bveins?\\b",
+      "interventricular",
+      "circumflex"
+     ]
+    },
+    "veins": {
+     "include": [
+      "vena cava",
+      "venae cavae",
+      "\\bveins?\\b",
+      "venous"
+     ],
+     "exclude": [
+      "pulmonary",
+      "coronary",
+      "cardiac vein",
+      "arter"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m3-heart-structure": {},
+     "m3-heart-valves-flow": {
+      "anat": "gross"
+     },
+     "m3-coronary-great-vessels": {
+      "anat": "gross"
+     },
+     "m3-conduction": {},
+     "m3-vessel-wall": {},
+     "m3-vessel-routes": {
+      "anat": "gross"
+     },
+     "m3-blood-cells": {
+      "anat": "histology"
+     },
+     "m3-blood": {},
+     "m3-upper-limb-vessels": {
+      "anat": "gross"
+     },
+     "m4-abdominal-vessels": {
+      "anat": "gross"
+     },
+     "m4-lower-limb-nav": {
+      "anat": "gross",
+      "onlyIf": "arter|\\bveins?\\b|vessel|venous"
+     }
+    },
+    "bio005": {
+     "t-blood": {},
+     "t-cardiac-electrophysiology": {},
+     "t-cardiac-mechanics": {},
+     "t-vascular-physiology": {},
+     "t-cardiovascular-regulation": {}
+    }
+   },
+   "loops": {
+    "heart": {},
+    "neuro-brain-cow": {}
+   },
+   "rounds": [
+    "heart-",
+    "abdves-",
+    "uevn-"
+   ]
+  },
+  "lymphatic": {
+   "name": "Lymphatic and Immune System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Lymphatic organs"
+    }
+   ],
+   "linkLabels": {
+    "border": "Lymph flows from one to the other",
+    "pathway": "Lymphocytes travel between them in the blood"
+   },
+   "territories": [
+    {
+     "id": "capillaries",
+     "name": "Lymphatic capillaries and vessels",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "nodes",
+     "name": "Lymph nodes",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "ducts",
+     "name": "Lymphatic trunks and ducts",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "marrow",
+     "name": "Red bone marrow",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "thymus",
+     "name": "Thymus",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "spleen",
+     "name": "Spleen",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "tonsils",
+     "name": "Tonsils and MALT",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "capillaries",
+     "b": "nodes",
+     "kind": "border",
+     "note": "Afferent lymphatic vessels carry lymph into lymph nodes."
+    },
+    {
+     "a": "nodes",
+     "b": "ducts",
+     "kind": "border",
+     "note": "Efferent vessels drain toward the lymphatic trunks and ducts."
+    },
+    {
+     "a": "tonsils",
+     "b": "nodes",
+     "kind": "border",
+     "note": "Lymph from the tonsils drains to cervical lymph nodes."
+    },
+    {
+     "a": "marrow",
+     "b": "thymus",
+     "kind": "pathway",
+     "note": "T cell precursors travel from red bone marrow to the thymus."
+    },
+    {
+     "a": "marrow",
+     "b": "spleen",
+     "kind": "pathway",
+     "note": "B cells made in red bone marrow travel in the blood to the spleen."
+    },
+    {
+     "a": "thymus",
+     "b": "nodes",
+     "kind": "pathway",
+     "note": "Mature T cells leave the thymus and settle in lymph nodes."
+    },
+    {
+     "a": "thymus",
+     "b": "spleen",
+     "kind": "pathway",
+     "note": "Mature T cells leave the thymus and settle in the spleen."
+    }
+   ],
+   "territoryRules": {
+    "nodes": {
+     "include": [
+      "lymph nodes?",
+      "germinal",
+      "medullary cord",
+      "subcapsular"
+     ]
+    },
+    "ducts": {
+     "include": [
+      "thoracic duct",
+      "right lymphatic duct",
+      "cisterna chyli",
+      "lymphatic trunk",
+      "\\btrunks\\b"
+     ]
+    },
+    "capillaries": {
+     "include": [
+      "lymphatic capillar",
+      "lacteal",
+      "lymphatic vessel",
+      "lymphangion"
+     ]
+    },
+    "thymus": {
+     "include": [
+      "thymus",
+      "thymic",
+      "thymocyte"
+     ]
+    },
+    "spleen": {
+     "include": [
+      "spleen",
+      "splenic",
+      "red pulp",
+      "white pulp"
+     ]
+    },
+    "tonsils": {
+     "include": [
+      "tonsil",
+      "\\bmalt\\b",
+      "peyer"
+     ]
+    },
+    "marrow": {
+     "include": [
+      "bone marrow"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m4-lymph-vessels": {},
+     "m4-lymph-organs": {}
+    },
+    "bio005": {
+     "t-immune-physiology": {}
+    }
+   },
+   "loops": {},
+   "rounds": []
+  },
+  "respiratory": {
+   "name": "Respiratory System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Airway and lungs"
+    }
+   ],
+   "linkLabels": {
+    "border": "Air passes from one to the next, or the structures touch",
+    "pathway": "Linked"
+   },
+   "territories": [
+    {
+     "id": "nasal",
+     "name": "Nose and nasal cavity",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pharynx",
+     "name": "Pharynx",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "larynx",
+     "name": "Larynx",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "trachea",
+     "name": "Trachea",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "lungs",
+     "name": "Lungs and pleurae",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "bronchi",
+     "name": "Bronchial tree",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "alveoli",
+     "name": "Respiratory zone and alveoli",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "diaphragm",
+     "name": "Diaphragm",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "nasal",
+     "b": "pharynx",
+     "kind": "border",
+     "note": "The nasal cavity opens into the nasopharynx."
+    },
+    {
+     "a": "pharynx",
+     "b": "larynx",
+     "kind": "border",
+     "note": "The laryngopharynx opens into the larynx."
+    },
+    {
+     "a": "larynx",
+     "b": "trachea",
+     "kind": "border",
+     "note": "The trachea begins below the cricoid cartilage."
+    },
+    {
+     "a": "trachea",
+     "b": "bronchi",
+     "kind": "border",
+     "note": "The trachea divides into the main bronchi at the carina."
+    },
+    {
+     "a": "bronchi",
+     "b": "lungs",
+     "kind": "border",
+     "note": "The main bronchi enter the lungs at the hilum."
+    },
+    {
+     "a": "bronchi",
+     "b": "alveoli",
+     "kind": "border",
+     "note": "Terminal bronchioles lead to respiratory bronchioles and alveoli."
+    },
+    {
+     "a": "lungs",
+     "b": "alveoli",
+     "kind": "border",
+     "note": "Alveoli fill most of the lung."
+    },
+    {
+     "a": "lungs",
+     "b": "diaphragm",
+     "kind": "border",
+     "note": "The base of each lung rests on the diaphragm."
+    }
+   ],
+   "territoryRules": {
+    "nasal": {
+     "include": [
+      "nasal",
+      "nose",
+      "nostril",
+      "nares",
+      "concha",
+      "meatus",
+      "paranasal"
+     ]
+    },
+    "pharynx": {
+     "include": [
+      "pharyn"
+     ]
+    },
+    "larynx": {
+     "include": [
+      "laryn(?!gopharyn)",
+      "epiglott",
+      "vocal",
+      "vestibular fold",
+      "glottis",
+      "thyroid cartilage",
+      "cricoid",
+      "arytenoid",
+      "corniculate",
+      "cuneiform"
+     ]
+    },
+    "trachea": {
+     "include": [
+      "trache"
+     ]
+    },
+    "bronchi": {
+     "include": [
+      "bronch(?!opulmonary)",
+      "carina"
+     ]
+    },
+    "alveoli": {
+     "include": [
+      "alveol",
+      "surfactant",
+      "pneumocyte",
+      "respiratory membrane"
+     ]
+    },
+    "lungs": {
+     "include": [
+      "\\blungs?\\b",
+      "pleura",
+      "hilum",
+      "\\bfissure",
+      "cardiac notch",
+      "lingula"
+     ]
+    },
+    "diaphragm": {
+     "include": [
+      "diaphragm"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m4-upper-respiratory": {},
+     "m4-lower-respiratory": {}
+    },
+    "bio005": {
+     "t-respiratory-mechanics": {},
+     "t-gas-exchange-and-transport": {},
+     "t-control-of-ventilation": {}
+    }
+   },
+   "loops": {
+    "respiratory": {}
+   },
+   "rounds": [
+    "resp-",
+    "larynx-",
+    "bronchial-tree"
+   ]
+  },
+  "digestive": {
+   "name": "Digestive System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Digestive organs"
+    }
+   ],
+   "linkLabels": {
+    "border": "Food passes from one to the next, or the organs are joined",
+    "pathway": "A duct carries secretions between them"
+   },
+   "territories": [
+    {
+     "id": "mouth",
+     "name": "Mouth and salivary glands",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "esophagus",
+     "name": "Pharynx and esophagus",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "liver",
+     "name": "Liver and gallbladder",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "stomach",
+     "name": "Stomach",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "pancreas",
+     "name": "Pancreas",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "largeint",
+     "name": "Large intestine",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "smallint",
+     "name": "Small intestine",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "mouth",
+     "b": "esophagus",
+     "kind": "border",
+     "note": "Food passes from the mouth into the oropharynx."
+    },
+    {
+     "a": "esophagus",
+     "b": "stomach",
+     "kind": "border",
+     "note": "The esophagus joins the stomach at the cardia."
+    },
+    {
+     "a": "stomach",
+     "b": "smallint",
+     "kind": "border",
+     "note": "The pyloric sphincter opens into the duodenum."
+    },
+    {
+     "a": "smallint",
+     "b": "largeint",
+     "kind": "border",
+     "note": "The ileum joins the cecum at the ileocecal valve."
+    },
+    {
+     "a": "liver",
+     "b": "stomach",
+     "kind": "border",
+     "note": "The lesser omentum connects the liver to the stomach."
+    },
+    {
+     "a": "liver",
+     "b": "smallint",
+     "kind": "pathway",
+     "note": "Bile reaches the duodenum through the bile duct."
+    },
+    {
+     "a": "pancreas",
+     "b": "smallint",
+     "kind": "pathway",
+     "note": "The pancreatic duct empties into the duodenum."
+    },
+    {
+     "a": "liver",
+     "b": "pancreas",
+     "kind": "pathway",
+     "note": "The bile duct and the pancreatic duct join at the hepatopancreatic ampulla."
+    }
+   ],
+   "territoryRules": {
+    "mouth": {
+     "include": [
+      "oral cavity",
+      "mouth",
+      "tongue",
+      "teeth",
+      "tooth",
+      "saliva",
+      "parotid",
+      "submandibular",
+      "sublingual",
+      "palate",
+      "uvula",
+      "gingiva",
+      "enamel",
+      "dentin"
+     ]
+    },
+    "esophagus": {
+     "include": [
+      "esophag",
+      "pharyn"
+     ]
+    },
+    "stomach": {
+     "include": [
+      "stomach",
+      "gastric",
+      "pylor",
+      "rugae",
+      "parietal cell",
+      "chief cell"
+     ]
+    },
+    "smallint": {
+     "include": [
+      "small intestine",
+      "duoden",
+      "jejun",
+      "ileum",
+      "ileal",
+      "plicae"
+     ]
+    },
+    "largeint": {
+     "include": [
+      "large intestine",
+      "colon",
+      "cecum",
+      "appendix",
+      "rectum",
+      "anal ",
+      "haustra",
+      "teniae",
+      "tenia coli"
+     ]
+    },
+    "liver": {
+     "include": [
+      "liver",
+      "hepat",
+      "bile",
+      "gallbladder",
+      "cystic duct"
+     ]
+    },
+    "pancreas": {
+     "include": [
+      "pancrea"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m4-gi-wall": {},
+     "m4-mouth-esophagus": {},
+     "m4-stomach-intestines": {},
+     "m4-accessory-organs": {}
+    },
+    "bio005": {
+     "t-digestive-physiology": {}
+    }
+   },
+   "loops": {
+    "esophagus": {
+     "territory": "esophagus"
+    },
+    "parotid": {
+     "territory": "mouth"
+    },
+    "stomach": {
+     "territory": "stomach"
+    },
+    "pharynx": {},
+    "colon": {},
+    "pancreas": {},
+    "liver": {}
+   },
+   "rounds": [
+    "digest-"
+   ]
+  },
+  "urinary": {
+   "name": "Urinary System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "main",
+     "name": "Kidney and urinary tract"
+    }
+   ],
+   "linkLabels": {
+    "border": "Urine passes from one to the next, or the structures touch",
+    "pathway": "Blood flows between them"
+   },
+   "territories": [
+    {
+     "id": "cortex",
+     "name": "Renal cortex",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "medulla",
+     "name": "Renal medulla",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "renalpelvis",
+     "name": "Renal pelvis and calyces",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "vessels",
+     "name": "Renal artery and vein",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "ureter",
+     "name": "Ureters",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "bladder",
+     "name": "Urinary bladder",
+     "views": [
+      "main"
+     ]
+    },
+    {
+     "id": "urethra",
+     "name": "Urethra",
+     "views": [
+      "main"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "vessels",
+     "b": "cortex",
+     "kind": "pathway",
+     "note": "Interlobar and arcuate arteries carry blood out to the cortex."
+    },
+    {
+     "a": "vessels",
+     "b": "renalpelvis",
+     "kind": "border",
+     "note": "The renal vessels and the renal pelvis pass through the hilum together."
+    },
+    {
+     "a": "cortex",
+     "b": "medulla",
+     "kind": "border",
+     "note": "The cortex surrounds the renal pyramids of the medulla."
+    },
+    {
+     "a": "medulla",
+     "b": "renalpelvis",
+     "kind": "border",
+     "note": "Renal papillae drain urine into the calyces."
+    },
+    {
+     "a": "renalpelvis",
+     "b": "ureter",
+     "kind": "border",
+     "note": "The renal pelvis narrows into the ureter."
+    },
+    {
+     "a": "ureter",
+     "b": "bladder",
+     "kind": "border",
+     "note": "The ureters open into the bladder at the trigone."
+    },
+    {
+     "a": "bladder",
+     "b": "urethra",
+     "kind": "border",
+     "note": "The urethra leaves the bladder at the internal urethral orifice."
+    }
+   ],
+   "territoryRules": {
+    "vessels": {
+     "include": [
+      "renal arter",
+      "renal vein",
+      "segmental arter",
+      "interlobar",
+      "arcuate",
+      "cortical radiate",
+      "interlobular arter"
+     ]
+    },
+    "cortex": {
+     "include": [
+      "renal cortex",
+      "renal corpuscle",
+      "glomerul",
+      "convoluted tubule"
+     ]
+    },
+    "medulla": {
+     "include": [
+      "renal medulla",
+      "pyramid",
+      "papilla",
+      "nephron loop",
+      "loop of henle",
+      "collecting duct"
+     ]
+    },
+    "renalpelvis": {
+     "include": [
+      "renal pelvis",
+      "calyx",
+      "calyces",
+      "\\bhilum"
+     ]
+    },
+    "ureter": {
+     "include": [
+      "\\bureters?\\b",
+      "ureteral",
+      "ureteric"
+     ]
+    },
+    "bladder": {
+     "include": [
+      "bladder",
+      "detrusor",
+      "trigone"
+     ]
+    },
+    "urethra": {
+     "include": [
+      "urethr"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m5-kidney": {},
+     "m5-nephron": {},
+     "m5-urinary-tract": {}
+    },
+    "bio005": {
+     "t-renal-physiology": {},
+     "t-acid-base-and-fluid-balance": {}
+    }
+   },
+   "loops": {
+    "urinary": {},
+    "renal-micro": {}
+   },
+   "rounds": []
+  },
+  "reproductive": {
+   "name": "Reproductive System",
+   "histologyIf": "histolog|epitheli|microscop|simple squamous|simple cuboidal|simple columnar|stratified|pseudostratified|transitional|goblet|lamina propria|\\bmucosa\\b|submucosa|muscularis|serosa|adventitia|tunica|endotheli|osteon|lamella|lacuna|canalicul|osteocyte|osteoblast|osteoclast|chondrocyte|sarcomere|myofibril|myofilament|sarcolemma|sarcoplasmic|striation|intercalated|alveolar cell|pneumocyte|podocyte|brush border|villi|crypt|hepatocyte|lobule|sinusoid|acin|islet|follicular cell|germinal center|white pulp|red pulp|stratum|keratinocyte|melanocyte|fibroblast|collagen fiber|elastic fiber|reticular fiber|seminiferous|sertoli|leydig|granulosa",
+   "views": [
+    {
+     "id": "male",
+     "name": "Male"
+    },
+    {
+     "id": "female",
+     "name": "Female"
+    }
+   ],
+   "linkLabels": {
+    "border": "Sperm or egg passes from one to the next",
+    "pathway": "Same embryonic origin (not joined in the body)"
+   },
+   "territories": [
+    {
+     "id": "testis",
+     "name": "Testes and scrotum",
+     "views": [
+      "male"
+     ]
+    },
+    {
+     "id": "ducts",
+     "name": "Epididymis and ductus deferens",
+     "views": [
+      "male"
+     ]
+    },
+    {
+     "id": "glands",
+     "name": "Accessory glands",
+     "views": [
+      "male"
+     ]
+    },
+    {
+     "id": "penis",
+     "name": "Penis and urethra",
+     "views": [
+      "male"
+     ]
+    },
+    {
+     "id": "ovary",
+     "name": "Ovaries",
+     "views": [
+      "female"
+     ]
+    },
+    {
+     "id": "tube",
+     "name": "Uterine tubes",
+     "views": [
+      "female"
+     ]
+    },
+    {
+     "id": "uterus",
+     "name": "Uterus",
+     "views": [
+      "female"
+     ]
+    },
+    {
+     "id": "vagina",
+     "name": "Vagina and vulva",
+     "views": [
+      "female"
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "a": "testis",
+     "b": "ducts",
+     "kind": "border",
+     "note": "Sperm leave the testis through the efferent ductules into the epididymis."
+    },
+    {
+     "a": "ducts",
+     "b": "glands",
+     "kind": "border",
+     "note": "The ductus deferens joins the duct of the seminal gland to form the ejaculatory duct."
+    },
+    {
+     "a": "glands",
+     "b": "penis",
+     "kind": "border",
+     "note": "The ejaculatory ducts open into the prostatic urethra."
+    },
+    {
+     "a": "ovary",
+     "b": "tube",
+     "kind": "border",
+     "note": "The fimbriae of the uterine tube sweep over the ovary."
+    },
+    {
+     "a": "tube",
+     "b": "uterus",
+     "kind": "border",
+     "note": "The uterine tubes open into the uterus."
+    },
+    {
+     "a": "uterus",
+     "b": "vagina",
+     "kind": "border",
+     "note": "The cervix opens into the vagina."
+    },
+    {
+     "a": "testis",
+     "b": "ovary",
+     "kind": "pathway",
+     "note": "Testes and ovaries are homologous gonads."
+    },
+    {
+     "a": "penis",
+     "b": "vagina",
+     "kind": "pathway",
+     "note": "The penis and the clitoris develop from the same embryonic structure."
+    }
+   ],
+   "territoryRules": {
+    "testis": {
+     "include": [
+      "testis",
+      "testes",
+      "testicul",
+      "scrot",
+      "seminiferous",
+      "sertoli",
+      "sustentacular",
+      "leydig",
+      "spermatogen"
+     ]
+    },
+    "ducts": {
+     "include": [
+      "epididym",
+      "ductus deferens",
+      "vas deferens",
+      "spermatic cord"
+     ]
+    },
+    "glands": {
+     "include": [
+      "seminal (vesicle|gland)",
+      "prostat",
+      "bulbourethral"
+     ]
+    },
+    "penis": {
+     "include": [
+      "penis",
+      "penile",
+      "cavernos",
+      "spongios",
+      "glans",
+      "prepuce"
+     ]
+    },
+    "ovary": {
+     "include": [
+      "ovar(y|ies|ian)",
+      "follic",
+      "corpus luteum",
+      "oocyte",
+      "ovulat"
+     ]
+    },
+    "tube": {
+     "include": [
+      "uterine tube",
+      "fallopian",
+      "oviduct",
+      "fimbria"
+     ]
+    },
+    "uterus": {
+     "include": [
+      "uter(us|ine)(?! tube)",
+      "endometri",
+      "myometri",
+      "perimetri",
+      "cervi"
+     ]
+    },
+    "vagina": {
+     "include": [
+      "vagin",
+      "vulva",
+      "labia",
+      "clitor",
+      "hymen"
+     ]
+    }
+   },
+   "recallRx": {
+    "bio004": {
+     "m5-male-repro": {},
+     "m5-female-repro": {}
+    },
+    "bio005": {
+     "t-reproductive-physiology": {}
+    }
+   },
+   "loops": {
+    "reproductive-female": {},
+    "reproductive-male": {},
+    "reproductive-cadaver": {}
+   },
+   "rounds": []
+  }
+ },
+ "imageBases": {
+  "loops": "https://drsrennie-stack.github.io/loops/images/"
+ }
+}
